@@ -1,0 +1,7 @@
+salesOrder,productID,productDescription,baseUOM,status,priceAmount,existQty
+SO-1001,550e8400-e29b-41d4-a716-446655440000,High-Grade Steel Rod,KG,Active,120.50,500
+SO-1002,550e8400-e29b-41d4-a716-446655440001,Aluminum Sheet,KG,Active,95.00,200
+SO-1003,550e8400-e29b-41d4-a716-446655440002,Copper Wire,M,Inactive,45.75,0
+SO-1001,550e8400-e29b-41d4-a716-446655440003,Plastic Tubing,M,Active,15.60,1200
+SO-1004,550e8400-e29b-41d4-a716-446655440004,Carbon Fiber Sheet,M2,Pending,300.00,50
+

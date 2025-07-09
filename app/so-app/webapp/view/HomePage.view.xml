@@ -1,0 +1,18 @@
+<mvc:View xmlns:table="sap.ui.table" controllerName="soapp.controller.HomePage"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form">
+    <Page id="HomepageAlfa" title="{i18n>Home Page}" titleAlignment="Center">
+    <content>
+    <form:SimpleForm id="_IDGenSimpleForm1"  layout="ResponsiveGridLayout">
+    <form:content >
+    <VBox id="_IDGenHBox2"  alignItems="Center" justifyContent="Center"  class="sapUiSmallMargin">
+    <Button id ="Customers" text="Customer" press="onNavBackToCustOV"  class ="homePageButton" />
+    <Button id ="Materials" text="Materials" press="onNavBackToMaterialOV" class ="homePageButton"/>
+    <Button id ="SalesOrders" text="Sales Orders" press="onNavBackToSalesOtOV" class ="homePageButton"/>
+    </VBox>
+    </form:content>
+    </form:SimpleForm>
+    </content>
+    </Page>
+</mvc:View>

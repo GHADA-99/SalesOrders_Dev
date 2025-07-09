@@ -1,0 +1,24 @@
+<mvc:View controllerName="soapp.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>Sales Orders Overview}" titleAlignment="Center">
+    <Button id= "createSoButton" text="Create" press="onNavToSoCreation" />
+    <Button id= "updateSoButton" text="Update" press="onNavToSoUpdate" />
+    <Button id= "backHome" text="Back" press="onNavToHome" />
+    <content>
+    <Table id = "SoOVTable"  class="sapUiMediumMarginTop" >
+    <columns>
+          <Column id = "SoColumn1">
+            <Text id = "SoID" text="Sales Order ID" />
+          </Column>
+          <Column id = "SOcolumn2">
+            <Text id = "SoDes" text="Sales Order Description" />
+          </Column>
+          <Column id ="SOColumn3">
+            <Text id ="SoCustomer" text="Customer" />
+          </Column>
+    </columns>
+    </Table>
+    </content>
+    </Page>
+</mvc:View>

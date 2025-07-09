@@ -1,0 +1,168 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "soapp",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.18.1",
+      "toolsId": "89deabbe-d2d5-4028-b8ef-a7ffd3851f35"
+    },
+    "dataSources": {
+    "salesOrderSubmition": {
+      "uri": "/odata/v4/sales-order-submition/",
+      "type": "OData",
+      "settings": {
+        "annotations": [],
+        "odataVersion": "4.0"
+      }
+    },
+    "c4cProductService": {
+      "uri": "/c4c/", 
+      "type": "OData",
+      "settings": {
+        "odataVersion": "2.0"
+      }
+    }
+  }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.136.2",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "soapp.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "salesOrderSubmition",
+        "type": "sap.ui.model.odata.v4.ODataModel",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true,
+          "synchronizationMode": "None",
+          "groupId": "$direct",
+          "updateGroupId": "$direct"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "soapp.view",
+        "async": true,
+        "viewPath": "soapp.view"
+      },
+      "routes": [
+        {
+          "name": "RouteHome",
+          "pattern": ":?query:",
+          "target": [
+            "TargetHomePage"
+          ]
+        },
+        {
+          "pattern": "SoCreate",
+          "name": "RouteSoCreate",
+          "target": "TargetSoCreate"
+        },
+        {
+          "pattern": "Home",
+          "name": "RouteHomee",
+          "target": "TargetHome"
+        },
+        {
+          "pattern": "MaterialOVPage",
+          "name": "RouteMaterialOVPage",
+          "target": "TargetMaterialOVPage"
+        },
+        {
+          "pattern": "CustomerOVPage",
+          "name": "RouteCustomerOVPage",
+          "target": "TargeCustomerOVPage"
+        }
+      ],
+      "targets": {
+        "TargetHome": {
+          "id": "Home",
+          "name": "Home"
+        },
+        "TargetSoCreate": {
+          "viewName": "SalesOrder",
+          "viewId": "SalesOrder",
+          "viewType": "XML"
+      },
+      "TargetHomePage":{
+        "viewName": "HomePage",
+        "viewId": "HomePage",
+        "viewType": "XML"
+      },
+      "TargetMaterialOVPage":{
+        "viewName": "Materials",
+        "viewId": "Materials",
+        "viewType": "XML"
+      },
+      "TargeCustomerOVPage":{
+        "viewName": "Customers",
+        "viewId": "Customers",
+        "viewType": "XML"
+      }
+      }
+    },
+    "rootView": {
+      "viewName": "soapp.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

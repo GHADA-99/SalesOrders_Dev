@@ -1,0 +1,30 @@
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="soapp.controller.SalesOrder"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="SOCreationPage" title="{i18n>New Sales Orders}" titleAlignment="Center">
+   
+    <content>
+    <form:SimpleForm id="_IDGenSimpleForm" layout="ResponsiveGridLayout">
+    <form:content >
+    <HBox id="_IDGenHBox1" alignItems="Start" justifyContent="Start">
+    <Button id ="back" text="Back" press="onNavBackToSoOV" />
+     </HBox>
+    <Label id="_IDGenLabel" text="Description" design="Bold"/>
+    <Input id="_IDGenInput" placeholder="Enter Description" width="400px" ></Input>
+    <Label id="_IDGenLabel2" required="true" text="Material" design="Bold"/>
+    <Input id="MaterialInput" showValueHelp="true" valueHelpRequest="onValueHelpRequestMaterial"
+                placeholder="Enter or select Material" editable="true" width="400px" 
+                    valueState="None" class="sapUiSmallMarginBottom" submit="onMaterialSubmit"/>
+    <Label id="_IDGenLabel3" required="true" text="Customer" design="Bold" />
+    <Input id="CustomerInput" showValueHelp="true" valueHelpRequest=".onValueHelpRequestCust"
+                placeholder="Enter or select Customer" width="400px" 
+                    valueState="None" class="sapUiSmallMarginBottom" submit="onCustomerSubmit"/>
+    
+    <HBox id="_IDGenHBox" justifyContent="End">
+    <Button id ="saveSO" text="Save" press="onSaveOrder"/>
+    </HBox>
+    </form:content>
+    </form:SimpleForm>
+    </content>
+    </Page>
+</mvc:View>

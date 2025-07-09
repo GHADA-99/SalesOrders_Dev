@@ -1,0 +1,35 @@
+<mvc:View xmlns:table="sap.ui.table" controllerName="soapp.controller.Materials"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="materialpage" title="{i18n>Materials Overview}" titleAlignment="Center">
+    <content>
+    <Button id ="CSVButton" text="Get Materials From SCV" press="onUploadCSV" />
+    <Button id ="odataButton" text="Get Materials From Odata" press="onReadOdata" />
+    <Button id="_IDGenButton" text="Back" press = "NavToHome"/>
+    <VBox id="_IDGenVBox" >
+    <Table id = "MaterialsOVTable"  class="sapUiMediumMarginTop" items="c4c>/ProductCollection">
+    <columns>
+          <Column id = "Column1">
+            <Text id = "ID" text="Material ID" />
+          </Column>
+          <Column id = "column2">
+            <Text id = "Des" text="Material Description" />
+          </Column>
+          <Column id ="Column3">
+            <Text id ="status" text="Status" />
+          </Column>
+    </columns>
+    <items>
+    <ColumnListItem id="_IDGenColumnListItem">
+            <cells>
+              <Text id = "item1" text="{c4c>ProductID}" />
+              <Text id = "item2" text="{c4c>Description}" />
+              <Text id = "item3" text="{c4c>StatusText}" />
+            </cells>
+    </ColumnListItem>
+    </items>
+    </Table>
+    </VBox>
+    </content>
+    </Page>
+</mvc:View>
