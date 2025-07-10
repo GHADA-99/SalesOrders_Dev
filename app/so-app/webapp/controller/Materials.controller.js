@@ -32,6 +32,21 @@ sap.ui.define([
           NavToHome: function () {
             const oRouter = this.getOwnerComponent().getRouter();
             oRouter.navTo("RouteHome");
-          }
+          },
+          onLoadProducts: function () {
+            const oC4CModel = this.getView().getModel("c4c"); // from manifest
+          
+            oC4CModel.read("/product/ProductCollection", {
+              success: function (oData) {
+                const oJSONModel = new sap.ui.model.json.JSONModel(oData);
+                this.getView().setModel(oJSONModel, "products");
+                sap.m.MessageToast.show("C4C Products loaded");
+              }.bind(this),
+              error: function (oError) {
+                sap.m.MessageToast.show("Error loading C4C products");
+                console.error(oError);
+              }
+            });
+          }          
     });
 });

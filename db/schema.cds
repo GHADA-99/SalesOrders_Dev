@@ -8,7 +8,8 @@ using {
  entity salesOrders : managed {
      key ID : UUID;
     title : String(225);
-    customer : String(100); //Fixed For Now
+    customer : String(100); 
+    material : String(100); //To be one field for now instead o table below
     items : Composition of many materialItems on items.salesOrder = $self;
     // Sales Order contains many items
  }

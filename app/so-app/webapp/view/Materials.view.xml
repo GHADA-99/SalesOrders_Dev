@@ -4,10 +4,10 @@
     <Page id="materialpage" title="{i18n>Materials Overview}" titleAlignment="Center">
     <content>
     <Button id ="CSVButton" text="Get Materials From SCV" press="onUploadCSV" />
-    <Button id ="odataButton" text="Get Materials From Odata" press="onReadOdata" />
+    <Button id ="odataButton" text="Get Materials From Odata" press="onLoadProducts" />
     <Button id="_IDGenButton" text="Back" press = "NavToHome"/>
     <VBox id="_IDGenVBox" >
-    <Table id = "MaterialsOVTable"  class="sapUiMediumMarginTop" items="c4c>/ProductCollection">
+    <Table id = "MaterialsOVTable"  class="sapUiMediumMarginTop" items="{/c4cMaterials}">
     <columns>
           <Column id = "Column1">
             <Text id = "ID" text="Material ID" />
@@ -22,9 +22,9 @@
     <items>
     <ColumnListItem id="_IDGenColumnListItem">
             <cells>
-              <Text id = "item1" text="{c4c>ProductID}" />
-              <Text id = "item2" text="{c4c>Description}" />
-              <Text id = "item3" text="{c4c>StatusText}" />
+              <Text id = "item1" text="{ProductID}" />
+              <Text id = "item2" text="{Description}" />
+              <Text id = "item3" text="{StatusText}" />
             </cells>
     </ColumnListItem>
     </items>

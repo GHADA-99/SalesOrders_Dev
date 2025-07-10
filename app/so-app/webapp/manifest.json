@@ -25,7 +25,7 @@
       }
     },
     "c4cProductService": {
-      "uri": "/c4c/", 
+      "uri": "/c4c/product/", 
       "type": "OData",
       "settings": {
         "odataVersion": "2.0"
@@ -55,7 +55,8 @@
       "minUI5Version": "1.136.2",
       "libs": {
         "sap.m": {},
-        "sap.ui.core": {}
+        "sap.ui.core": {},
+        "sap.ui.table": {}
       }
     },
     "contentDensities": {
@@ -80,6 +81,14 @@
           "synchronizationMode": "None",
           "groupId": "$direct",
           "updateGroupId": "$direct"
+        }
+      },
+      "c4c":{
+        "dataSource": "c4cService",
+        "type": "sap.ui.model.odata.v2.ODataModel",
+        "settings": {
+          "useBatch": false,
+          "defaultBindingMode": "TwoWay"
         }
       }
     },
@@ -113,6 +122,11 @@
         {
           "pattern": "SoCreate",
           "name": "RouteSoCreate",
+          "target": "TargetSoCreate"
+        },
+        {
+          "pattern": "SoUpdate/{orderId}",
+          "name": "RouteSoUpdate",
           "target": "TargetSoCreate"
         },
         {
