@@ -1,6 +1,8 @@
 namespace srv;
 using db as db from '../db/schema';
 using product as prd_API from '../srv/external/product.csn';
+using customer as cust_API from '../srv/external/customer.csn';
+
 
 service salesOrderSubmition {
 
@@ -27,6 +29,18 @@ service salesOrderSubmition {
             BaseUOMText,
            
         };
+    entity c4cCustomer as select from cust_API.CorporateAccountCollection{
+        @Common.Label : 'Customer ID'
+        key AccountID,
+        @Common.Label : 'Customer Name'
+        BusinessPartnerFormattedName,
+        @Common.Label : 'Customer Status'
+        LifeCycleStatusCodeText,
+        @Common.Label : 'BP Type'
+         RoleCode,
+        @Common.Label : 'BP Type Text'
+         RoleCodeText
 
+    }
 
 }

@@ -7,7 +7,7 @@
     <Button id="_IDGenButton3" text="Get Customers From Odata" press="onReadOdata" />
     <Button id="_IDGenButton4"  text="Back" press = "NavToHome"/>
     <VBox id="_IDGenVBox2"  >
-    <Table id="_IDGenTable"   class="sapUiMediumMarginTop" items="c4c>/ProductCollection">
+    <Table id="_IDGenTable"   class="sapUiMediumMarginTop" items="{/c4cCustomer}">
     <columns>
           <Column id="_IDGenColumn" >
             <Text id="_IDGenText"  text="Customer ID" />
@@ -18,13 +18,17 @@
           <Column id="_IDGenColumn2" >
             <Text id="_IDGenText2"  text="Status" />
           </Column>
+          <Column id="_IDGenColumn3" >
+            <Text id="_IDGenText10"  text="Type" />
+          </Column>
     </columns>
     <items>
     <ColumnListItem id="_IDGenColumnListItem1" >
             <cells>
-              <Text id="_IDGenText3"  text="{c4c>ProductID}" />
-              <Text id="_IDGenText4"  text="{c4c>Description}" />
-              <Text id="_IDGenText5"  text="{c4c>StatusText}" />
+              <Text id="_IDGenText3"  text="{AccountID}" />
+              <Text id="_IDGenText4"  text="{BusinessPartnerFormattedName}" />
+              <Text id="_IDGenText5"  text="{LifeCycleStatusCodeText}" />
+              <Text id="_IDGenText11"  text="{RoleCodeText}" />
             </cells>
     </ColumnListItem>
     </items>

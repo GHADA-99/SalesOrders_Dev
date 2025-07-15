@@ -2,7 +2,8 @@ const cds = require('@sap/cds');
 const fs = require('fs');
 const path = require('path');
 const {
-  readMaterials
+  readMaterials,
+  readCustomers
 } = require('./lib/handlers');
 
 module.exports = cds.service.impl(async function () {
@@ -10,12 +11,14 @@ module.exports = cds.service.impl(async function () {
  
     /*** SERVICE ENTITIES ***/
     const {
-      c4cMaterials
+      c4cMaterials,
+      c4cCustomer
     } = this.entities;
 
     /*** HANDLERS REGISTRATION ***/
     // ON events
     this.on('READ', c4cMaterials, readMaterials);
+    this.on('READ',c4cCustomer,readCustomers);
     
   this.on('getCSVData', async () => {
     const filePath = path.join(__dirname, 'Materials.csv');

@@ -29,7 +29,14 @@
         "kind": "odata-v2",
         "model": "srv/external/product",
         "credentials": {
-           "destination": "Demo-C4C-cap"
+          "destination": "Demo-C4C-cap"
+        }
+      },
+      "customer": {
+        "kind": "odata-v2",
+        "model": "srv/external/customer",
+        "credentials": {
+          "destination": "Demo-C4C-cap"
         }
       }
     }
