@@ -83,6 +83,26 @@ sap.ui.define([
               console.error(oError);
             }
           );
+          var olistItemsBinding = oModel.bindList("/materials");
+          const oDataItems = {
+            salesOrder : this.byId("_IDGenInput3").getValue(),
+            productID : this.byId("_IDGenText17").getValue(),
+            itemID : this.byId("_IDGenText16").getValue(),
+            productDescription : this.byId("_IDGenText18").getValue(),
+            status : this.byId("_IDGenText19").getValue(),
+            inputQty : this.byId("_IDGenInput4").getValue()
+            
+          }
+          olistItemsBinding.create(oDataItems).created().then (
+            function () {
+              sap.m.MessageToast.show("Sales Order Items saved successfully");
+            },
+            function (oError) {
+              sap.m.MessageToast.show("Error saving Sales Order Items");
+              console.error(oError);
+            }
+          );
+
       },
       onValueHelpRequestMaterial (oEvent){
         if (!this._oValueHelpDialog) {
