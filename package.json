@@ -10,7 +10,8 @@
     "express": "^4",
     "@sap-cloud-sdk/connectivity": "^3",
     "@sap-cloud-sdk/http-client": "^3",
-    "@sap-cloud-sdk/resilience": "^3"
+    "@sap-cloud-sdk/resilience": "^3",
+    "@cap-js/hana": "^2"
   },
   "engines": {
     "node": ">=20"
@@ -37,6 +38,23 @@
         "model": "srv/external/customer",
         "credentials": {
           "destination": "Demo-C4C-cap"
+        }
+      },
+      "db": {
+        "kind": "hana",
+        "credentials": {
+          "clientid": "sb-clone4e0bb427d80e4bd0a1348fca75a81cc7!b465116|destination-xsappname!b62",
+          "clientsecret": "cf2f6903-a394-4dab-9b86-48ad77153f9a$x9zbJLLCLVz6YeRF2_ZEmDSvBPKwqAom263uf9hHVMM=",
+          "url": "https://4c99d610trial.authentication.us10.hana.ondemand.com",
+          "identityzone": "4c99d610trial",
+          "tenantid": "d93e6f7f-3b2c-4913-80f1-e13704287124",
+          "tenantmode": "dedicated",
+          "verificationkey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAj4q007hMtVBi2705kWRp\nJFpRZnw96o54jg7mUrkcFWyHQ+6hWBZ4Ki/ycQp7/cDuq0W0NkMsHFdYTEioUIsj\nseWlAubXLOQEjJuNkA+x4gy0RNw9qHS8pYsBkdG8F+T3S3rBksGHHUHyuK2jP/+o\noPdeor8mmDf/9jueats7ne29H6HYVFoMZa2eycw+az6vcwQqSkKOj8GNZW4eI2H2\n08ZFz8TmMBzgi9KZNcjrnDL/3zdE6oPw0twNJabrfRfhmk5k7kbWZaDluo95MLA3\nsDvmp5bJtX6rKAAESjc1g8DZIp83inVqKiimQAKndVcGnHIKwrGLXSl3AI81bYNr\ntwIDAQAB\n-----END PUBLIC KEY-----",
+          "xsappname": "clone4e0bb427d80e4bd0a1348fca75a81cc7!b465116|destination-xsappname!b62",
+          "uaadomain": "authentication.us10.hana.ondemand.com",
+          "credential-type": "binding-secret",
+          "instanceid": "4e0bb427-d80e-4bd0-a134-8fca75a81cc7",
+          "uri": "https://destination-configuration.cfapps.us10.hana.ondemand.com"
         }
       }
     }
