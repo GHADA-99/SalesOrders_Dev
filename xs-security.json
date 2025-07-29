@@ -1,0 +1,7 @@
+{
+  "xsappname": "SalesOrders_Dev",
+  "tenant-mode": "dedicated",
+  "scopes": [],
+  "attributes": [],
+  "role-templates": []
+}

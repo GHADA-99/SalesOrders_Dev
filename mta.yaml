@@ -1,0 +1,122 @@
+_schema-version: 3.3.0
+ID: SalesOrders_Dev
+version: 1.0.0
+description: "A simple CAP project."
+parameters:
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm ci
+        - npx cds build --production
+modules:
+  - name: SalesOrders_Dev-srv
+    type: nodejs
+    path: gen/srv
+    parameters:
+      instances: 1
+      buildpack: nodejs_buildpack
+    build-parameters:
+      builder: npm-ci
+    provides:
+      - name: srv-api # required by consumers of CAP services (e.g. approuter)
+        properties:
+          srv-url: ${default-url}
+    requires:
+      - name: SalesOrders_Dev-db
+      - name: SalesOrders_Dev-destination
+  - name: SalesOrders_Dev-db-deployer
+    type: hdb
+    path: gen/db
+    parameters:
+      buildpack: nodejs_buildpack
+    requires:
+      - name: SalesOrders_Dev-db
+  - name: SalesOrders_Dev
+    type: approuter.nodejs
+    path: app/router
+    parameters:
+      keep-existing-routes: true
+      disk-quota: 256M
+      memory: 256M
+    requires:
+      - name: srv-api
+        group: destinations
+        properties:
+          name: srv-api # must be used in xs-app.json as well
+          url: ~{srv-url}
+          forwardAuthToken: true
+      - name: SalesOrders_Dev-destination
+    provides:
+      - name: app-api
+        properties:
+          app-protocol: ${protocol}
+          app-uri: ${default-uri}
+  - name: SalesOrders_Dev-destination-content
+    type: com.sap.application.content
+    requires:
+      - name: SalesOrders_Dev-destination
+        parameters:
+          content-target: true
+      - name: SalesOrders_Dev_html_repo_host
+        parameters:
+          service-key:
+            name: SalesOrders_Dev_html_repo_host-key
+      - name: SalesOrders_Dev-auth
+        parameters:
+          service-key:
+            name: SalesOrders_Dev-auth-key
+    parameters:
+      content:
+        instance:
+          destinations:
+            - Name: SalesOrders_Dev_approuter_SalesOrders_Dev_html_repo_host
+              ServiceInstanceName: SalesOrders_Dev-html5-app-host-service
+              ServiceKeyName: SalesOrders_Dev_html_repo_host-key
+              sap.cloud.service: SalesOrders_Dev-approuter
+            - Authentication: OAuth2UserTokenExchange
+              Name: SalesOrders_Dev_approuter_SalesOrders_Dev_auth
+              ServiceInstanceName: SalesOrders_Dev-auth
+              ServiceKeyName: SalesOrders_Dev-auth-key
+              sap.cloud.service: SalesOrders_Dev-approuter
+          existing_destinations_policy: ignore
+    build-parameters:
+      no-source: true
+  - name: so-app
+    type: html5
+    path: app/so-app
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm install
+      supported-platforms:
+        []
+resources:
+  - name: SalesOrders_Dev-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+  - name: SalesOrders_Dev-destination
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: destination
+      service-plan: lite
+  - name: SalesOrders_Dev-auth
+    type: org.cloudfoundry.managed-service
+    parameters:
+      config:
+        xsappname: SalesOrders_Dev
+        tenant-mode: dedicated
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+  - name: SalesOrders_Dev_html_repo_host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-name: SalesOrders_Dev-html5-app-host-service
+      service-plan: app-host
+
