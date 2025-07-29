@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/core/mvc/Controller"],e=>{"use strict";return e.extend("soapp.controller.HomePage",{onInit(){},onNavBackToCustOV:function(){const e=this.getOwnerComponent().getRouter();e.navTo("RouteCustomerOVPage")},onNavBackToMaterialOV:function(){const e=this.getOwnerComponent().getRouter();e.navTo("RouteMaterialOVPage")},onNavBackToSalesOtOV:function(){const e=this.getOwnerComponent().getRouter();e.navTo("RouteHomee")}})});
+//# sourceMappingURL=HomePage.controller.js.map

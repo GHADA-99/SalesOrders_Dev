@@ -1,0 +1,78 @@
+<mvc:View xmlns:table="sap.ui.table" xmlns:form="sap.ui.layout.form" controllerName="soapp.controller.SalesOrder"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="SOCreationPage" title="{i18n>New Sales Orders}" titleAlignment="Center">
+   
+    <content>
+    <form:SimpleForm id="_IDGenSimpleForm" layout="ResponsiveGridLayout">
+    <form:content >
+    <HBox id="_IDGenHBox1" alignItems="Start" justifyContent="Start">
+    <Button id ="back" text="Back" press="onNavBackToSoOV" />
+     </HBox>
+     <Label id="_IDGenLabel7" text="Sales Order ID" design= "Bold"/>
+     <Input id="_IDGenInput3" width="400px" editable="false"/>
+    <Label id="_IDGenLabel" required="true" text="Description" design="Bold"/>
+    <Input id="_IDGenInput" placeholder="Enter Description" width="400px" ></Input>
+    
+    <Label id="_IDGenLabel2" required="true" text="Material" design="Bold"/>
+    <Input id="MaterialInput" showValueHelp="true" valueHelpRequest="onValueHelpRequestMaterial"
+                placeholder="Enter or select Material" editable="true" width="400px" 
+                    valueState="None" class="sapUiSmallMarginBottom" submit="onMaterialSubmit"/>
+    <Button id="_IDGenButton5" text="Set Material" press="onSetMaterial" class="generalButton"/>
+    <Label id="_IDGenLabel6" text="Material Description" design="Bold"/>
+    <Input id="_IDGenInput2" width="400px" editable="false"/>
+
+    <Label id="_IDGenLabel3" required="true" text="Customer ID" design="Bold" />
+    <Input id="CustomerInput" showValueHelp="true" valueHelpRequest=".onValueHelpRequestCust"
+                placeholder="Enter or select Customer" width="400px" 
+                    valueState="None" class="sapUiSmallMarginBottom" submit="onCustomerSubmit"/>
+    <Label id="_IDGenLabel1" text="Customer Name" design="Bold"/>
+    <Input id="_IDGenInput1" editable="false"/>
+    <HBox id="_IDGenHBox" justifyContent="End">
+    <Button id ="saveSO" text="Save" press="onSaveOrder"/>
+    </HBox>
+    </form:content>
+    </form:SimpleForm>
+    <IconTabBar id="_IDGenIconTabBar" expandable="false" selectedKey="Tab1" class="sapUiResponsiveContentPadding">
+    <items>
+    <IconTabFilter id="_IDGenIconTabFilter" key="Tab1" text="Items">
+    <Table id="_IDGenTable1"  class="sapUiMediumMarginTop" items="{/materials}">
+        <columns>
+            <Column id="_IDGenColumn5" >
+            <Text id="_IDGenText12" text="Item ID"/>
+            </Column>
+            <Column id="_IDGenColumn4">
+            <Text id="_IDGenText13" text="Material ID"/>
+            </Column>
+            <Column id="_IDGenColumn6">
+            <Text id="_IDGenText14" text="Material Description"/>
+            </Column>
+            <Column id="_IDGenColumn7">
+            <Text id="_IDGenText15" text="Status"/>
+            </Column>
+            <Column id="_IDGenColumn9" visible="false">
+            <Text id="_IDGenText22" text="Exist Qty"/>
+            </Column>
+            <Column id="_IDGenColumn8">
+            <Text id="_IDGenText20" text="QTY"/>
+            </Column>
+        </columns>
+        <items>
+        <ColumnListItem id="_IDGenColumnListItem2" >
+        <cells>
+        <Text id="_IDGenText16" text="{itemID}"/>
+        <Text id="_IDGenText17" text="{productID}"/>
+        <Text id="_IDGenText18" text="{productDescription}"/>
+        <Text id="_IDGenText19" text="{status}"/>
+        <Text id="_IDGenText21" text="{existQty}"/>
+        <Input id="_IDGenInput4" value="{inputQty}" editable="true"/>
+        </cells>
+        </ColumnListItem>
+        </items>
+    </Table>
+    </IconTabFilter>
+    </items>
+    </IconTabBar>
+    </content>
+    </Page>
+</mvc:View>

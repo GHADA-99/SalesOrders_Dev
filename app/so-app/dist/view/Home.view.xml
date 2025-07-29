@@ -1,0 +1,50 @@
+<mvc:View controllerName="soapp.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>Sales Orders Overview}" titleAlignment="Center">
+    <Button id= "createSoButton" text="Create" press="onNavToSoCreation" />
+    <Button id= "updateSoButton" text="Update" press="onNavToSoUpdate" />
+    <Button id= "backHome" text="Back" press="onNavToHome" />
+    <content>
+    <VBox id="_IDGenVBox1" >
+    <HBox id="_IDGenHBox4">
+      <VBox id="_IDGenVBox3" >
+      <Label id="_IDGenLabel4"  text="Customer" design="Bold" labelFor="filterInput" />
+      <Input id="filterInput" placeholder="Enter Customer" />
+      </VBox>
+      <VBox id="_IDGenVBox4" >
+      <Label id="_IDGenLabel5"  text="Material" design="Bold"/>
+      <Input id="filterInput2" placeholder="Enter Material" />
+      </VBox>
+      <Button id="_IDGenButton2" text="Filter" press="onFilter" />
+    </HBox>
+    <Table id = "SoOVTable"   mode="SingleSelectLeft" class="sapUiMediumMarginTop"  items="{/salesOrders}" >
+    <columns>
+          <Column id = "SoColumn1">
+            <Text id = "SoID" text="Sales Order ID" />
+          </Column>
+          <Column id = "SOcolumn2">
+            <Text id = "SoDes" text="Sales Order Description" />
+          </Column>
+          <Column id ="SOColumn3">
+            <Text id ="SoCustomer" text="Customer" />
+          </Column>
+          <Column id ="SOColumn4">
+            <Text id ="SoSingleMaterial" text="Material" />
+          </Column>
+    </columns>
+    <items>
+    <ColumnListItem id="_IDGenColumnListItem3">
+      <cells>
+        <Text id="_IDGenText6" text="{ID}" />               <!-- Field names must match your CAP entity -->
+        <Text id="_IDGenText7" text="{title}" />
+        <Text id="_IDGenText8" text="{customer}" />
+        <Text id="_IDGenText9" text="{material}" />
+      </cells>
+    </ColumnListItem>
+  </items>
+    </Table>
+    </VBox>
+    </content>
+    </Page>
+</mvc:View>

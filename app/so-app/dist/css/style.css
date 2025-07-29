@@ -1,0 +1,13 @@
+/* Enter your custom styles here */
+.homePageButton {
+    height: 80px !important;
+    line-height: 60px !important;
+    font-size: 20px;
+    width: 400px !important;;
+  }
+.generalButton {
+  height: 40px !important;
+  line-height: 60px !important;
+  font-size: 10px;
+  width: 100px !important;
+}

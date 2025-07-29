@@ -62,27 +62,7 @@
           "uri": "https://destination-configuration.cfapps.us10.hana.ondemand.com"
         }
       },
-      "auth":{
-        "kind": "xsuaa",
-        "credentials": {
-          "tenantmode": "shared",
-          "sburl": "https://internal-xsuaa.authentication.us10.hana.ondemand.com",
-          "subaccountid": "d93e6f7f-3b2c-4913-80f1-e13704287124",
-          "credential-type": "binding-secret",
-          "clientid": "sb-na-5ab936a1-9b24-4ba6-9c69-f347716ee215!t465116",
-          "xsappname": "na-5ab936a1-9b24-4ba6-9c69-f347716ee215!t465116",
-          "clientsecret": "2cc9a9a6-033c-4f99-994f-284772161532$Kx3WIUG9Pd8Rz91-AvaTWjjjD82o1F5UV_e6aViZDxM=",
-          "serviceInstanceId": "3e595950-30bb-458c-b88f-0202361760a6",
-          "url": "https://4c99d610trial.authentication.us10.hana.ondemand.com",
-          "uaadomain": "authentication.us10.hana.ondemand.com",
-          "verificationkey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAj4q007hMtVBi2705kWRp\nJFpRZnw96o54jg7mUrkcFWyHQ+6hWBZ4Ki/ycQp7/cDuq0W0NkMsHFdYTEioUIsj\nseWlAubXLOQEjJuNkA+x4gy0RNw9qHS8pYsBkdG8F+T3S3rBksGHHUHyuK2jP/+o\noPdeor8mmDf/9jueats7ne29H6HYVFoMZa2eycw+az6vcwQqSkKOj8GNZW4eI2H2\n08ZFz8TmMBzgi9KZNcjrnDL/3zdE6oPw0twNJabrfRfhmk5k7kbWZaDluo95MLA3\nsDvmp5bJtX6rKAAESjc1g8DZIp83inVqKiimQAKndVcGnHIKwrGLXSl3AI81bYNr\ntwIDAQAB\n-----END PUBLIC KEY-----",
-          "apiurl": "https://api.authentication.us10.hana.ondemand.com",
-          "identityzone": "4c99d610trial",
-          "identityzoneid": "d93e6f7f-3b2c-4913-80f1-e13704287124",
-          "tenantid": "d93e6f7f-3b2c-4913-80f1-e13704287124",
-          "zoneid": "d93e6f7f-3b2c-4913-80f1-e13704287124"
-        }
-      }
+      "auth": "mocked"
     }
   }
 }
